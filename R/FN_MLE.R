@@ -1,4 +1,6 @@
 #' @useDynLib FNMLE, .registration=TRUE
+#' @importFrom Rcpp evalCpp
+#' @importFrom mvtnorm dmvnorm
 
 #' @export
 #' @title Estimation of Multivariate Folded normal distribution
