@@ -1,4 +1,4 @@
 library(testthat)
 library(FNMLE)
 
-test_check("FN_MLE")
+test_check("FNMLE")
