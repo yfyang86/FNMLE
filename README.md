@@ -7,10 +7,13 @@
 
 This package provides an numerical approach to derive the maximum likelihood estimation (MLE) of multidimensional folded normal distribution (FN).
 
+Will add the definition of multidimensional FN here....
 
 # A Simple Walk through
 
 In this section we will illustrate the two dimensional case of the folded normal distribution. 
+
+Will illustrate Sigma matrix here...
 
 ## Simulation Data Generation
 
