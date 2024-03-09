@@ -30,10 +30,8 @@ sig1 <- 1
 sig2 <- 2
 rho <- 0.2
 mean <- c(u1, u2)
-sigma2 <- matrix(c(
-                sig1^2,             rho * sig1 * sig2,
-                rho * sig1 * sig2,  sig2^2),
-                2, 2)
+sigma2 <- matrix(c(sig1^2,  rho * sig1 * sig2,
+                rho * sig1 * sig2,  sig2^2), nrow = 2)
 dat <- abs(mvrnorm(n, mean, sigma2))
 ```
 ## The MLE of multidimensional FN distribution
