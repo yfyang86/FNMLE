@@ -9,6 +9,8 @@ This package provides an numerical approach to derive the maximum likelihood est
 
 Will add the definition of multidimensional FN here....
 
+Note: We assume $\mu_i \ge 0$ in this package. 
+
 # A Simple Walk through
 
 In this section we will illustrate the two dimensional case of the folded normal distribution. 
