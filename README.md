@@ -19,6 +19,8 @@ represents a possible sign vector, and the diagonal sign matrix is ${\bf \Lambda
 We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity.
 
 
+The parameters ${\bf \mu}$ and ${\bf \Sigma}$ in the above definition are the mean vector and variance matrix of the corresponding $n$-dimensional random vector with multivariate normal distribution $N_n({\bf \mu}, {\bf \Sigma})$.
+
 Note: We assume $\mu_i \ge 0$ in this package. 
 
 
