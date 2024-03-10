@@ -23,7 +23,7 @@ Note: We assume $\bf \mu \ge \bf 0$ in this package.
 
 # An example of the bivariate case
 In this section, we will introduce an example of the bivariate case $FN_2(\bf \mu, \bf \Sigma)$, where $\bf \mu = (\mu_1, \mu_2)'$ and 
-$$\bf \Sigma = \begin{array}{cc} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sigma_{22} \end{array}.$$
+$$\bf \Sigma = \begin{array}{cc} \sigma_{11} & \sigma_{21} \\ \sigma_{21} & \sigma_{22} \end{array}.$$
 
 
 
@@ -70,8 +70,41 @@ These results highlight the accuracy of our estimation method in capturing the u
 ## The estimated coverage probability of the $95\%$ confidence intervals for the parameters
 Additional simulations are performed to assess the estimated coverage probability of the $95\%$ confidence intervals for the parameters.
 Following the approach of Tsagris et al. (2014), $95\%$ confidence intervals are calculated using the normal approximation, where the variance matrix is estimated using the inverse of the Hessian matrix.
-
-
+```r
+set.seed(123456)
+simu_n <- 100
+dim_p <- 2
+result_df <- data.frame()
+n <- 20
+mu <- c(2.5, 2.5)
+ss <- matrix(c(25, 5, 5, 25), 2, 2)
+lower_idx <- f_lower_idx(dim_p)
+for (i in seq_len(simu_n)) {
+    dat <- mvrnorm(n, mu, ss)
+    inputx <- abs(dat)
+    fit <- FN_MLE(inputx)
+    fisher_info <- solve(fit$hessian)
+    prop_sigma <- sqrt(diag(fisher_info))
+    prop_sigma <- diag(prop_sigma)
+    a <- diag(prop_sigma)
+    prop_sigma <- a
+    upper <- fit$par + 1.96 * prop_sigma
+    lower <- fit$par - 1.96 * prop_sigma
+    true_para <- c(mu, ss[lower_idx])
+    p <- c()
+    for (k in 1:5) {
+        p[k] <- (lower[k] <= true_para[k] & true_para[k] <= upper[k])
+    }
+    result_df <- rbind(result_df, p)
+}
+## calculate coverage rate of parameters ##
+# Be sure to handle NA's before the
+# coverage rate calculation
+result_df[is.na(result_df)] <- FALSE
+p <- apply(result_df, 2, mean)
+names(p)=c("mu1","mu2","sigma11","sigma21","sigma22")
+round(p, 2)
+```
 
 
 
