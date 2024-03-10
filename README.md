@@ -16,12 +16,9 @@ $$f_{\bf X}(\bf x; \bf \mu, \bf \Sigma)=\sum_{\bf s \in \bf S(n)} (2 \pi)^{-\fra
 where 
 $${\bf s}=(s_1, \cdots, s_n)\in {\bf S}(n) = \{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n \}$$ 
 represents a possible sign vector, and the diagonal sign matrix is ${\bf \Lambda}_{\bf s}^{(n)} = diag(s_1, \cdots, s_n)$. 
-We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity.
+We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity, where the parameters ${\bf \mu}$ and ${\bf \Sigma}$ are the mean vector and variance matrix of the corresponding $n$-dimensional random vector with multivariate normal distribution $N_n({\bf \mu}, {\bf \Sigma})$.
 
-
-The parameters ${\bf \mu}$ and ${\bf \Sigma}$ in the above definition are the mean vector and variance matrix of the corresponding $n$-dimensional random vector with multivariate normal distribution $N_n({\bf \mu}, {\bf \Sigma})$.
-
-Note: We assume $\mu_i \ge 0$ in this package. 
+Note: We assume $\bf \mu \ge \bf 0$ in this package. 
 
 
 
