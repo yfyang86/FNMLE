@@ -72,7 +72,7 @@ Additional simulations are performed to assess the estimated coverage probabilit
 Following the approach of Tsagris et al. (2014), $95\%$ confidence intervals are calculated using the normal approximation, where the variance matrix is estimated using the inverse of the Hessian matrix.
 ```r
 set.seed(123456)
-simu_n <- 100
+simu_n <- 1000
 dim_p <- 2
 result_df <- data.frame()
 n <- 20
@@ -105,6 +105,15 @@ p <- apply(result_df, 2, mean)
 names(p)=c("mu1","mu2","sigma11","sigma21","sigma22")
 round(p, 2)
 ```
+
+Then the estimated coverage rate the parameters are:
+| n | simu_n   |   mu1   |     mu2     |   sigma11   | sigma21   | sigma22 |
+|--:|---------:|--------:|------------:|------------:|----------:|--------:|
+|20 |1000      |0.68     |0.67         |0.71         |0.75       |0.69     |
+
+Here:
+- n: samples size
+- simu_n: simulation times
 
 
 
