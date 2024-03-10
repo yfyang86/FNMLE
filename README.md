@@ -14,8 +14,8 @@ if its probability density function is given by
 $$ f_{{\bf X}}({\bf x}; {\bf \mu}, {\bf \Sigma}) = \sum_{\bf s \in \bf S(n)} (2 \pi)^{-\frac{n}{2}} |{\bf \Sigma}|^{-\frac{1}{2}} \exp\left\{ -\frac{1}{2}\left(\bf\Lambda_{\bf s}^{(n)}{\bf x} - {\bf\mu}\right)^{'} {\bf\Sigma}^{-1}\left(\bf\Lambda_{\bf s}^{(n)}\bf x - {\bf\mu}\right)\right\}, \  {\bf x \geq 0},$$
 where 
 $${\bf s}=(s_1, \cdots, s_n)\in {\bf S}(n) =\{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n\}$$ 
-represents a possible sign vector, and the diagonal sign matrix is ${\bm \Lambda}_{\bm s}^{(n)} = diag(s_1, \cdots, s_n)$. 
-We further denote ${\bm X} \sim FN_n({\bm \mu}, {\bm \Sigma})$ for simplicity.
+represents a possible sign vector, and the diagonal sign matrix is ${\bf \Lambda}_{\bf s}^{(n)} = diag(s_1, \cdots, s_n)$. 
+We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity.
 
 
 Note: We assume $\mu_i \ge 0$ in this package. 
