@@ -23,7 +23,7 @@ Note: We assume $\bf \mu \ge \bf 0$ in this package.
 
 # An example of the bivariate case
 In this section, we will introduce an example of the bivariate case $FN_2(\bf \mu, \bf \Sigma)$, where $\bf \mu = (\mu_1, \mu_2)'$ and 
-$$ \begin{align*} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sigma_{22} \end{align*}.$$
+$$ \begin{array}{cc} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sigma_{22} \end{array}.$$
 
 
 ## Simulation Data Generation
