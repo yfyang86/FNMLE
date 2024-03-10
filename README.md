@@ -14,18 +14,14 @@ A random vector ${\bf X} = (X_1,\cdots,X_n)^{'}$ is said to have a multivariate 
 if its probability density function is given by
 $$f_{\bf X}(\bf x; \bf \mu, \bf \Sigma)=\sum_{\bf s \in \bf S(n)} (2 \pi)^{-\frac{n}{2}} |{\bf \Sigma}|^{-\frac{1}{2}}\exp\{-\frac{1}{2}(\bf\Lambda_{\bf s}^{(n)}{\bf x} - {\bf\mu})^{'} {\bf\Sigma}^{-1}(\bf\Lambda_{\bf s}^{(n)}\bf x - {\bf\mu})\},$$
 where 
-$${\bf s}=(s_1, \cdots, s_n)\in {\bf S}(n) = \{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n \}$$ 
+$${\bf s}=(s_1, \cdots, s_n)\in {\bf S}(n) = [{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n }]$$ 
 represents a possible sign vector, and the diagonal sign matrix is ${\bf \Lambda}_{\bf s}^{(n)} = diag(s_1, \cdots, s_n)$. 
 We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity, where the parameters ${\bf \mu}$ and ${\bf \Sigma}$ are the mean vector and variance matrix of the corresponding $n$-dimensional random vector with multivariate normal distribution $N_n({\bf \mu}, {\bf \Sigma})$.
 
 Note: We assume $\bf \mu \ge \bf 0$ in this package. 
 
 
-
-In this section we will illustrate the two dimensional case of the folded normal distribution. 
-
-Will illustrate Sigma matrix here...
-
+# An example of bivariate case 
 ## Simulation Data Generation
 
 
