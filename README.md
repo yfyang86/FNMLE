@@ -29,7 +29,7 @@ $$\bf \Sigma = \begin{array}{cc} \sigma_{11} & \sigma_{12} \\ \sigma_{12} & \sig
 
 ## Simulation Data Generation
 
-We began by generating 100 samples from a bivariate folded normal distribution with mean parameters $\bm{\mu}=(4, 6)$ and the covariance matrix $\bm{\Sigma}$ given by:
+We began by generating 100 samples from a bivariate folded normal distribution with mean parameters $\bf \mu=(4, 6)$ and the covariance matrix $\bf \Sigma$ given by:
 $\begin{bmatrix}
 	1 & 0.4 \\
 	0.4 & 4
