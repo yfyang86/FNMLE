@@ -61,7 +61,8 @@ names(result$par)=c("mu1","mu2","sigma11","sigma21","sigma22")
 
 The estimated covariance matrix is:
 ```r
-est_helper.G2(result$par, method = "chole")[["sigma2"]]
+### The estimated covariance matrix
+est_helper.G2(result$par)[["sigma2"]]
 ```
 
 These results highlight the accuracy of our estimation method in capturing the underlying parameters of the bivariate folded normal distribution based on the given samples.
