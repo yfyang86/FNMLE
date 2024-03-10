@@ -11,12 +11,7 @@ First, let's recall the definition of the $n$-dimensional folded normal random v
 
 A random vector ${\bm X} = (X_1,\cdots,X_n)^{'}$ is said to have a multivariate folded normal distribution with a real vector ${\bm\mu}\in\mathbb{R}^n$ and a symmetric positive definite matrix ${\bm \Sigma}_{n\times n}$,
 if its probability density function is given by
-\begin{equation}
-  f_{{\bm X}}({\bm x}; {\bm \mu}, {\bm\Sigma}) 
- = \sum_{\bm s\in \bm S(n)} 
-   (2\pi)^{-\frac{n}{2}} |{\bm \Sigma}|^{-\frac{1}{2}} 
-   \exp\left\{ -\frac{1}{2}\left(\bm\Lambda_{\bm s}^{(n)}{\bm x} - {\bm\mu}\right)^{'} {\bm\Sigma}^{-1}\left(\bm\Lambda_{\bm s}^{(n)}\bm x - {\bm\mu}\right)\right\}, \  {\bm x \geq 0},
-\end{equation}
+$$ f_{{\bm X}}({\bm x}; {\bm \mu}, {\bm\Sigma}) = \sum_{\bm s\in \bm S(n)} (2\pi)^{-\frac{n}{2}} |{\bm \Sigma}|^{-\frac{1}{2}} \exp\left\{ -\frac{1}{2}\left(\bm\Lambda_{\bm s}^{(n)}{\bm x} - {\bm\mu}\right)^{'} {\bm\Sigma}^{-1}\left(\bm\Lambda_{\bm s}^{(n)}\bm x - {\bm\mu}\right)\right\}, \  {\bm x \geq 0},$$
 where 
 $${\bm s}=(s_1, \cdots, s_n)\in {\bm S}(n) =\{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n\}$$ 
 represents a possible sign vector, and the diagonal sign matrix is ${\bm \Lambda}_{\bm s}^{(n)} = diag(s_1, \cdots, s_n)$. 
