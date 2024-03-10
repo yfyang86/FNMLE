@@ -21,7 +21,9 @@ We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity, w
 Note: We assume $\bf \mu \ge \bf 0$ in this package. 
 
 
-# An example of bivariate case 
+# An example of the bivariate case
+In this section, we will introduce an example of the bivariate case $FN_2(\bf \mu, \bf \Sigma)$.
+
 ## Simulation Data Generation
 
 
