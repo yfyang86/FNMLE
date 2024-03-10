@@ -7,7 +7,7 @@
 
 This package provides an numerical approach to derive the maximum likelihood estimation (MLE) of multidimensional folded normal distribution (FN).
 
-# Introduce to a multidimensional folded normal distribution
+# An introduction to a multidimensional folded normal distribution
 First, let's recall the definition of the $n$-dimensional folded normal random vector. More details can be found in Chakraborty and Chatterjee (2013), Xi Liu, Yiqiao Jin, Yifan Yang and Xiaoqing Pan (2023).
 
 A random vector ${\bf X} = (X_1,\cdots,X_n)^{'}$ is said to have a multivariate folded normal distribution with a real vector ${\bf\mu}\in\mathbb{R}^n$ and a symmetric positive definite matrix $\bf \Sigma_{n \times n}$,
