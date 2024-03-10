@@ -115,5 +115,78 @@ Here:
 - n: samples size
 - simu_n: simulation times
 
+## Real data example
 
+We use the `bmi.nz` data in the `VGAM` package as an example. It is the body mass indexes and ages from an approximate random sample of 700 New Zealand adults.
+
+
+```r
+source("utils.R")
+library(MASS)
+library(ggplot2)
+library("shape")
+library("MASS")
+
+## R package VGAM bmi data
+data <- VGAM::bmi.nz
+## For users' convinience, we provide the tab separated data file as well
+## data <- read.csv("bmi.csv", header = TRUE, sep = " ")[, c(2, 3)]
+colnames(data) <- c("age", "bmi")
+## kernel density estimate ##
+kde_estimation <- kde2d(data[, 1], data[, 2])
+length(kde_estimation$x)
+dim(kde_estimation$z)
+## estimate MLE ##
+dat <- data.frame(data$age, data$bmi)
+fit <- FN_MLE(dat)
+muest <- fit$par[c(1, 2)]
+sigma <- matrix(c(fit$par[3], 0, fit$par[4], fit$par[5]), nrow = 2)
+fisher_info <- solve(fit$hessian)
+prop_sigma <- sqrt(diag(fisher_info))
+prop_sigma <- diag(prop_sigma)
+a <- diag(prop_sigma)
+prop_sigma <- a
+sigmaest <- t(sigma) %*% sigma
+x <- seq(min(data$age), max(data$age), length.out = 25)
+y <- seq(min(data$bmi), max(data$bmi), length.out = 25)
+mu1 <- muest[1]
+mu2 <- muest[2]
+sgm1 <- sqrt(sigmaest[1, 1])
+sgm2 <- sqrt(sigmaest[2, 2])
+rou <- sigmaest[1, 2] / (sgm1 * sgm2)
+
+f1 <- function(x, y) {
+    (1.0 / (2.0 * pi * sgm1 * sgm2 * sqrt(1 - rou^2))
+    ) * (exp((-1.0 / (2.0 * (1 - rou^2))) * ((((x - mu1)^2) / (sgm1^2)) - 
+        (2 * rou * (x - mu1) * (y - mu2) / (sgm1 * sgm2)) + (((y - mu2)^2) / sgm2^2))) + 
+            exp((-1.0 / (2.0 * (1 - rou^2))) * ((((x + mu1)^2) / (sgm1^2)) - 
+                (2 * rou * (x + mu1) * (y - mu2) / (sgm1 * sgm2)) + (((y - mu2)^2) / sgm2^2)))
+                    + exp((-1.0 / (2.0 * (1 - rou^2))) * ((((x - mu1)^2) / (sgm1^2)) - 
+                    (2 * rou * (x - mu1) * (y + mu2) / (sgm1 * sgm2)) + (((y + mu2)^2) / sgm2^2))) + 
+                        exp((-1.0 / (2.0 * (1 - rou^2))) * ((((x + mu1)^2) / (sgm1^2)) - (2 * rou * (x + mu1) * (y + mu2) / 
+                            (sgm1 * sgm2)) + (((y + mu2)^2) / sgm2^2))))
+}
+
+z <- outer(x, y, f1) # generate pdf of folded normal
+png("figure/combined_plot.png", width = 18, height = 8, units = "in", res = 300)
+layout(matrix(c(1, 2), nrow = 1))
+par(mgp = c(3, 2, 5))
+persp(x, y, z, theta = 60, phi = 10, expand = 0.6, r = 180, ltheta = 0, shade = 0.5,
+    ticktype = "detailed", xlab = "Age", ylab = "Body Mass Index", zlab = "Density",
+    col = "lightblue", main = "", cex.axis = 1.25, cex.lab = 1.75)
+par(mgp = c(3, 2, 5))
+persp(kde_estimation$x, kde_estimation$y, kde_estimation$z, theta = 60, phi = 10,
+    expand = 0.6, r = 180, ltheta = 0, shade = 0.5,
+    ticktype = "detailed", xlab = "Age", ylab = "Body Mass Index",
+    zlab = "Density", col = "lightgray", main = "", cex.axis = 1.25, cex.lab = 1.75)
+dev.off()
+```
+
+Check the figures as follows. 
+
+- The left figure is the estimated density surface of the proposed MLE. 
+- The right figure is the estimated density surface of the kernel density estimation.
+
+
+![persp](./figure/combined_plot.png)
 
