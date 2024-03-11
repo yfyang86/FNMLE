@@ -31,7 +31,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # Introductions
 
 This package mainly provides an numerical approach to derive the maximum likelihood estimation (MLE) of a multivariate folded normal distribution (FN). 
@@ -57,7 +56,17 @@ Note: We assume $\bf \mu \ge \bf 0$ in this package.
 
 The MLE of a multivariate FN is calculated by the `FN_MLE` function and the estimated covariance matrix is derived by the `est_helper.G2` function.
 
+The output of $FN_MLE$ function is:
 
+
+| output |  explanation|
+|:--------|------:|
+|par | The estimated MLEs of parameters|
+|value | the value log-likelihood function|
+|counts | function??? gradient ???|
+|convergence | 0: converage; ???|
+|message | NULL |
+|hessian | The hessian matrix of parameters|
 
 
 ## Example: 
