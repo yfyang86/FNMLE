@@ -31,14 +31,9 @@ $$\bf \Sigma = \begin{array}{cc} \sigma_{11} & \sigma_{21} \\ \sigma_{21} & \sig
 
 We began by generating 100 samples from a bivariate folded normal distribution with mean parameters $\bf \mu=(4, 6)$ and the covariance matrix $\bf \Sigma$ given by:
 $$\begin{bmatrix}
-	1 & 0.4 \\
-	0.4 & 4 \\
+1&0.4 \\
+0.4&4 \\
 \end{bmatrix}.$$
-
-$$\begin{bmatrix}
-1&0 \\
-3&1 \\
-\end{bmatrix}$$
 
 ```r
 library(MASS)
