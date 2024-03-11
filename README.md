@@ -72,7 +72,7 @@ These results highlight the accuracy of our estimation method in capturing the u
 
 ## The estimated coverage probability of the 95% confidence intervals for the parameters
 Additional simulations are performed to assess the estimated coverage probability of the $95\%$ confidence intervals for the parameters.
-Following the approach of Tsagris et al. (2014), $95\%$ confidence intervals are calculated using the normal approximation, where the variance matrix is estimated using the inverse of the Hessian matrix.
+Following the approach of Tsagris et al. (2014), 95% confidence intervals are calculated using the normal approximation, where the variance matrix is estimated using the inverse of the Hessian matrix.
 ```r
 set.seed(123456)
 simu_n <- 1000
