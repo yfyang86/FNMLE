@@ -56,7 +56,7 @@ Note: We assume $\bf \mu \ge \bf 0$ in this package.
 
 The MLE of a multivariate FN is calculated by the `FN_MLE` function and the estimated covariance matrix is derived by the `est_helper.G2` function.
 
-The output of $FN_MLE$ function is:
+The output of `FN_MLE` function is:
 
 
 | output |  explanation|
