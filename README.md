@@ -71,7 +71,7 @@ est_helper.G2(result$par)[["sigma2"]]
 These results highlight the accuracy of our estimation method in capturing the underlying parameters of the bivariate folded normal distribution based on the given samples.
 
 ## The estimated coverage probability of the 95% confidence intervals for the parameters
-Additional simulations are performed to assess the estimated coverage probability of the $95\%$ confidence intervals for the parameters.
+Additional simulations are performed to assess the estimated coverage probability of the 95% confidence intervals for the parameters.
 Following the approach of Tsagris et al. (2014), 95% confidence intervals are calculated using the normal approximation, where the variance matrix is estimated using the inverse of the Hessian matrix.
 ```r
 set.seed(123456)
