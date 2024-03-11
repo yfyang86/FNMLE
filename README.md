@@ -35,6 +35,10 @@ $$\begin{bmatrix}
 	0.4 & 4 \\
 \end{bmatrix}.$$
 
+$$\begin{bmatrix}
+1&0 \\
+3&1 \\
+\end{bmatrix}$$
 
 ```r
 library(MASS)
