@@ -30,19 +30,94 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
 # Introductions
-This package provides an numerical approach to derive the maximum likelihood estimation (MLE) of multidimensional folded normal distribution (FN).
+
+This package mainly provides an numerical approach to derive the maximum likelihood estimation (MLE) of a multivariate folded normal distribution (FN). 
+In addition, we also provide the estimated coverage probability of the 95% confidence intervals for the parameters.
+
+## Definition of a multivariate FN distribution
 
 First, let's recall the definition of the $n$-dimensional folded normal random vector. More details can be found in Chakraborty and Chatterjee (2013), Xi Liu, Yiqiao Jin, Yifan Yang and Xiaoqing Pan (2023).
 
 A random vector ${\bf X} = (X_1,\cdots,X_n)^{'}$ is said to have a multivariate folded normal distribution with a real vector ${\bf\mu}\in\mathbb{R}^n$ and a symmetric positive definite matrix $\bf \Sigma_{n \times n}$,
 if its probability density function is given by
 
-$$f_{\bf X}(\bf x; \bf \mu, \bf \Sigma)=\sum_{\bf s \in \bf S(n)} (2 \pi)^{-\frac{n}{2}} |{\bf \Sigma}|^{-\frac{1}{2}}\exp[{-\frac{1}{2}(\bf\Lambda_{\bf s}^{(n)}{\bf x} - {\bf\mu})^{'} {\bf\Sigma}^{-1}(\bf\Lambda_{\bf s}^{(n)}\bf x - {\bf\mu})}],  \  {\bf x \geq \bf 0},$$
+$$f_{\bf X}(\bf x; \bf \mu, \bf \Sigma)=\sum_{\bf s \in \bf S(n)} (2 \pi)^{-\frac{n}{2}} |{\bf \Sigma}|^{-\frac{1}{2}}\exp\left\{-\frac{1}{2}(\bf\Lambda_{\bf s}^{(n)}{\bf x} - {\bf\mu})^{'} {\bf\Sigma}^{-1}(\bf\Lambda_{\bf s}^{(n)}\bf x - {\bf\mu})\right\},  \  {\bf x \geq \bf 0},$$
 where 
-$${\bf s}=(s_1, \cdots, s_n)\in {\bf S}(n) = [{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n }]$$ 
+$${\bf s}=(s_1, \cdots, s_n)\in {\bf S}(n) = \{(s_1, \cdots, s_n): s_i = \pm 1, i = 1,\cdots, n \}$$ 
 represents a possible sign vector, and the diagonal sign matrix is ${\bf \Lambda}_{\bf s}^{(n)} = diag(s_1, \cdots, s_n)$. 
 We further denote ${\bf X} \sim FN_n({\bf \mu}, {\bf \Sigma})$ for simplicity, where the parameters ${\bf \mu}$ and ${\bf \Sigma}$ are the mean vector and variance matrix of the corresponding $n$-dimensional random vector with multivariate normal distribution $N_n({\bf \mu}, {\bf \Sigma})$.
 
 Note: We assume $\bf \mu \ge \bf 0$ in this package. 
 
+
+## FNMLE
+
+The MLE of a multivariate FN is calculated by the `FN_MLE` function and the estimated covariance matrix is derived by the `est_helper.G2` function.
+
+
+
+
+## Example: 
+
+
+
+### Input Data Examples: a bivarate FN distribution
+We began by generating 100 samples from a bivariate folded normal distribution with mean parameters $\bf \mu=(4, 6)$ and the covariance matrix $\bf \Sigma$ given by:
+
+$$\begin{bmatrix}
+1&0.4 \\
+0.4&4 \\
+\end{bmatrix}.$$
+
+```r
+library(MASS)
+set.seed(123)
+n <- 100
+u1 <- 4
+u2 <- 6
+sig1 <- 1
+sig2 <- 2
+rho <- 0.2
+mean <- c(u1, u2)
+sigma2 <- matrix(c(sig1^2,  rho * sig1 * sig2,
+                rho * sig1 * sig2,  sig2^2), nrow = 2)
+dat <- abs(mvrnorm(n, mean, sigma2))
+```
+
+Thus the example input data is
+
+|[,1] |  [,2]|
+|:--------|------:|
+|4.539075 | 4.791439|
+|3.691853 | 5.573058|
+|4.645804 | 9.079975|
+|4.353886 | 6.096777|
+|4.952306 | 6.137696|
+
+
+## The MLE of multivariate FN distribution
+Applying the function "FN_MLE" in our R package "FNMLE", the MLE of multidimensional FN is derived.
+
+```r
+## MLE
+library(FNMLE)
+result <- FN_MLE(dat)
+print(result$par)
+names(result$par)=c("mu1","mu2","sigma11","sigma21","sigma22")
+```
+
+The estimated covariance matrix is:
+
+```r
+### The estimated covariance matrix
+est_helper.G2(result$par)[["sigma2"]]
+```
+
+## 
+
+
+# Other Demos
+
+Please vist the [FNMLE-emo](https://github.com/yfyang86/FNMLE) project for more demos.
